@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Game Developer - Create Your Game</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/background.css">
+    <link rel="stylesheet" href="../css/navigation.css">
+    <link rel="stylesheet" href="../css/ai-developer.css">
+</head>
+<body>
+    <div class="animated-background"></div>
+    
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <a href="../index.html">
+                    <span class="logo-text">T.A.B</span>
+                    <span class="logo-subtext">Game Developer</span>
+                </a>
+            </div>
+            
+            <nav class="nav-menu">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="features.html" class="nav-link">Features</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+            
+            <div class="nav-auth">
+                <button class="btn-login" onclick="openLoginModal()">Login</button>
+                <button class="btn-signup" onclick="openSignupModal()">Sign Up</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="ai-dev-container">
+        <section class="ai-dev-wrapper">
+            <div class="ai-dev-header">
+                <h1>AI Game Developer</h1>
+                <p>Describe your game idea and watch it come to life</p>
+            </div>
+
+            <div class="ai-dev-content">
+                <!-- Input Section -->
+                <div class="input-section">
+                    <div class="input-card">
+                        <h2>Tell Us Your Game Idea</h2>
+                        <textarea 
+                            id="gameDescription" 
+                            class="game-input" 
+                            placeholder="Example: Create a 2D platformer game with a blue character that can jump and collect coins. The game should have 3 levels with increasing difficulty..."
+                            rows="8"
+                        ></textarea>
+                        <div class="input-controls">
+                            <button class="btn-generate" onclick="generateGame()">🤖 Generate Game</button>
+                            <button class="btn-clear" onclick="clearInput()">Clear</button>
+                        </div>
+                        <div class="loading" id="loadingSpinner" style="display: none;">
+                            <div class="spinner"></div>
+                            <p>Creating your game...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Preview Section -->
+                <div class="preview-section">
+                    <div class="preview-card" id="previewCard">
+                        <div class="preview-placeholder">
+                            <p>Your game preview will appear here</p>
+                        </div>
+                    </div>
+
+                    <!-- Game Editor (Hidden until game is created) -->
+                    <div class="editor-section" id="editorSection" style="display: none;">
+                        <h3>Edit Your Game</h3>
+                        <div class="editor-tabs">
+                            <button class="tab-btn active" onclick="switchTab('properties')">Properties</button>
+                            <button class="tab-btn" onclick="switchTab('mechanics')">Mechanics</button>
+                            <button class="tab-btn" onclick="switchTab('visuals')">Visuals</button>
+                        </div>
+
+                        <!-- Properties Tab -->
+                        <div id="propertiesTab" class="tab-content active">
+                            <div class="editor-group">
+                                <label>Game Title</label>
+                                <input type="text" id="gameTitle" class="editor-input" placeholder="Enter game title">
+                            </div>
+                            <div class="editor-group">
+                                <label>Game Genre</label>
+                                <select id="gameGenre" class="editor-input">
+                                    <option>Platformer</option>
+                                    <option>Puzzle</option>
+                                    <option>Adventure</option>
+                                    <option>Arcade</option>
+                                    <option>RPG</option>
+                                </select>
+                            </div>
+                            <div class="editor-group">
+                                <label>Difficulty Level</label>
+                                <select id="difficultyLevel" class="editor-input">
+                                    <option>Easy</option>
+                                    <option>Medium</option>
+                                    <option>Hard</option>
+                                    <option>Expert</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Mechanics Tab -->
+                        <div id="mechanicsTab" class="tab-content">
+                            <div class="editor-group">
+                                <label>
+                                    <input type="checkbox" id="jumpMechanic"> Jump Mechanic
+                                </label>
+                                <label>
+                                    <input type="checkbox" id="collectibles"> Collectibles
+                                </label>
+                                <label>
+                                    <input type="checkbox" id="enemies"> Enemies
+                                </label>
+                                <label>
+                                    <input type="checkbox" id="powerUps"> Power-ups
+                                </label>
+                            </div>
+                            <div class="editor-group">
+                                <label>Number of Levels</label>
+                                <input type="number" id="levelCount" class="editor-input" min="1" max="50" value="3">
+                            </div>
+                        </div>
+
+                        <!-- Visuals Tab -->
+                        <div id="visualsTab" class="tab-content">
+                            <div class="editor-group">
+                                <label>Main Character Color</label>
+                                <input type="color" id="characterColor" class="color-picker" value="#0066ff">
+                            </div>
+                            <div class="editor-group">
+                                <label>Background Color</label>
+                                <input type="color" id="bgColor" class="color-picker" value="#87ceeb">
+                            </div>
+                            <div class="editor-group">
+                                <label>Game Style</label>
+                                <select id="gameStyle" class="editor-input">
+                                    <option>Pixel Art</option>
+                                    <option>Cartoon</option>
+                                    <option>Realistic</option>
+                                    <option>Minimalist</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="editor-actions">
+                            <button class="btn-save" onclick="saveChanges()">💾 Save Changes</button>
+                            <button class="btn-regenerate" onclick="regenerateGame()">🔄 Regenerate</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 T.A.B Game Developer. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/ai-developer.js"></script>
+</body>
+</html>

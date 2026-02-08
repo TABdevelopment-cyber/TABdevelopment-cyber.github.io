@@ -1,0 +1,76 @@
+// Authentication Modal Management
+function openSignupModal() {
+    document.getElementById('signupModal').style.display = 'block';
+    document.getElementById('loginModal').style.display = 'none';
+}
+
+function closeSignupModal() {
+    document.getElementById('signupModal').style.display = 'none';
+}
+
+function openLoginModal() {
+    document.getElementById('loginModal').style.display = 'block';
+    document.getElementById('signupModal').style.display = 'none';
+}
+
+function closeLoginModal() {
+    document.getElementById('loginModal').style.display = 'none';
+}
+
+function switchToSignup() {
+    closeLoginModal();
+    openSignupModal();
+}
+
+function switchToLogin() {
+    closeSignupModal();
+    openLoginModal();
+}
+
+// Close modal when clicking outside of it
+window.onclick = function(event) {
+    const signupModal = document.getElementById('signupModal');
+    const loginModal = document.getElementById('loginModal');
+    
+    if (event.target === signupModal) {
+        signupModal.style.display = 'none';
+    }
+    if (event.target === loginModal) {
+        loginModal.style.display = 'none';
+    }
+};
+
+// Handle Signup Form Submission
+document.addEventListener('DOMContentLoaded', function() {
+    const signupForm = document.getElementById('signupForm');
+    if (signupForm) {
+        signupForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            // Validation
+            if (password !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+            
+            if (password.length < 6) {
+                alert('Password must be at least 6 characters long!');
+                return;
+            }
+            
+            // Here you would typically send the data to a backend
+            console.log('Signup:', { email, password });
+            alert('Account created successfully! Welcome to T.A.B Game Developer!');
+            closeSignupModal();
+            signupForm.reset();
+        });
+    }
+
+    // Handle Login Form Submission
+    const loginForm = document.getElementById('loginForm');
+    if (loginForm) {
+        loginForm.addEventListener('submit', function(

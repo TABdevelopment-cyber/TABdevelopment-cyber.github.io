@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - T.A.B Game Developer</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/background.css">
+    <link rel="stylesheet" href="../css/navigation.css">
+    <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body>
+    <div class="animated-background"></div>
+    
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <a href="../index.html">
+                    <span class="logo-text">T.A.B</span>
+                    <span class="logo-subtext">Game Developer</span>
+                </a>
+            </div>
+            
+            <nav class="nav-menu">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="features.html" class="nav-link">Features</a>
+                <a href="about.html" class="nav-link active">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+            
+            <div class="nav-auth">
+                <button class="btn-login" onclick="openLoginModal()">Login</button>
+                <button class="btn-signup" onclick="openSignupModal()">Sign Up</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="page-container">
+        <section class="page-header">
+            <h1>About T.A.B Game Developer</h1>
+            <p>Empowering creators to build the games they imagine</p>
+        </section>
+
+        <section class="about-content">
+            <div class="about-section">
+                <h2>Our Mission</h2>
+                <p>
+                    At T.A.B Game Developer, we believe that everyone has the potential to create amazing games. 
+                    Our mission is to democratize game development by making it accessible, fun, and rewarding for 
+                    creators of all skill levels.
+                </p>
+            </div>
+
+            <div class="about-section">
+                <h2>Our Vision</h2>
+                <p>
+                    We envision a world where imagination is the only limit to game creation. By combining cutting-edge 
+                    AI technology with intuitive design tools, we're making it possible for anyone to bring their game 
+                    ideas to life in minutes, not months.
+                </p>
+            </div>
+
+            <div class="about-section">
+                <h2>Why T.A.B?</h2>
+                <p>
+                    T.A.B stands for "Think, Act, Build" – the three core principles that guide our platform. We help 
+                    you think creatively about your game ideas, act quickly to bring them to life with AI, and build 
+                    your dream game with powerful editing tools.
+                </p>
+            </div>
+
+            <div class="about-section">
+                <h2>Our Commitment</h2>
+                <p>
+                    We're committed to continuously improving our platform based on creator feedback. We invest in 
+                    cutting-edge AI technology, user experience design, and community building to ensure T.A.B Game 
+                    Developer remains the best platform for modern game creators.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 T.A.B Game Developer. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/navigation.js"></script>
+</body>
+</html>
